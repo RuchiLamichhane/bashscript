@@ -1,0 +1,13 @@
+#!/bin/sh
+sudo yum install epel-release
+sudo yum install java-1.8.0-openjdk-devel -y
+sudo yum install wget -y
+sudo useradd -m -U -d /opt/tomcat -s /bin/false tomcat
+cd /tmp
+wget https://downloads.apache.org/tomcat/tomcat-9/v9.0.89/bin/apache-tomcat-9.0.89.tar.gz
+mkdir-p /opt/tomcat
+sudo tar -xzvf apache-tomcat-9.0.89.tar.gz -C /opt/tomcat --strip-components=1
+sudo chown -R tomcat:tomcat /opt/tomcat
+cd /opt/tomcat
+chmod +x /bin/*.sh
+
